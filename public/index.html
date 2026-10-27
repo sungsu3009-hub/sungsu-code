@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IPO CC | 이포 컨트리클럽</title>
+  <meta name="description" content="자연의 한도 최고의 코스, 이포CC. 당신의 특별한 라운드를 시작하세요." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#" class="logo" aria-label="IPO C.C. 홈">
+        <svg class="logo__mark" viewBox="0 0 60 64" aria-hidden="true">
+          <g fill="none" stroke="currentColor">
+            <path d="M14 8 Q30 2 46 8" stroke-width="1"/>
+            <path d="M10 20 C6 30 8 44 18 52 M50 20 C54 30 52 44 42 52" stroke-width="1.2"/>
+            <path d="M9 26l-3-2M8 33l-3-1M9 40l-3 0M12 46l-3 1M51 26l3-2M52 33l3-1M51 40l3 0M48 46l3 1" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M18 14h24v20c0 9-6 15-12 18-6-3-12-9-12-18z" stroke-width="1.8"/>
+            <path d="M20.5 16.5h19v17.3c0 7.4-4.8 12.4-9.5 15-4.7-2.6-9.5-7.6-9.5-15z" stroke-width="0.8"/>
+          </g>
+          <text x="30" y="11.5" text-anchor="middle" font-size="5" font-family="Montserrat, sans-serif" font-weight="600" fill="currentColor" letter-spacing="0.6">IPO</text>
+          <text x="30" y="39" text-anchor="middle" font-size="19" font-family="Cormorant Garamond, serif" font-weight="600" fill="currentColor">P</text>
+          <path d="M25 36 Q30 43 35 36" fill="none" stroke="currentColor" stroke-width="1"/>
+          <text x="30" y="62" text-anchor="middle" font-size="5" font-family="Montserrat, sans-serif" font-weight="600" fill="currentColor" letter-spacing="0.6">C.C.</text>
+        </svg>
+        <span class="logo__text">
+          <strong>IPO C.C.</strong>
+        </span>
+      </a>
+
+      <nav class="gnb" id="gnb" aria-label="주 메뉴">
+        <ul>
+          <li><a href="#" class="is-active">홈</a></li>
+          <li><a href="#course">코스소개</a></li>
+          <li><a href="#reserve">예약하기</a></li>
+          <li><a href="#clubhouse">클럽하우스</a></li>
+          <li><a href="#news">이벤트</a></li>
+          <li><a href="#gallery">갤러리</a></li>
+          <li><a href="#footer">이포CC 소개</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__util">
+        <span class="weather-chip">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg>
+          <span id="headerTemp">22°</span>
+        </span>
+        <button class="menu-btn" id="menuBtn" aria-label="전체 메뉴 열기" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="hero__bg img" style="background-image:url('images/hero.jpg'), var(--ph)"></div>
+    <div class="hero__shade"></div>
+    <div class="container hero__content">
+      <p class="eyebrow eyebrow--light">IPO COUNTRY CLUB</p>
+      <h1 class="hero__title">Nature Meets<br />Championship</h1>
+      <p class="hero__desc">자연의 한도 최고의 코스, 이포CC<br />당신의 특별한 라운드를 시작하세요.</p>
+      <div class="hero__btns">
+        <a href="#reserve" class="btn btn--green" data-modal="reserveModal">예약하기 <i class="arr"></i></a>
+        <a href="#course" class="btn btn--ghost">코스 둘러보기
+          <svg class="play-sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 8.5v7l5.5-3.5z" fill="currentColor"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== QUICK MENU ========== -->
+  <section class="quick" id="reserve">
+    <div class="container">
+      <ul class="quick__list">
+        <li>
+          <a href="#" class="quick__item quick__item--primary" data-modal="reserveModal">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="6" width="24" height="22" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 12h24M10 3v6M22 3v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><g fill="currentColor"><circle cx="10" cy="17" r="1.4"/><circle cx="16" cy="17" r="1.4"/><circle cx="22" cy="17" r="1.4"/><circle cx="10" cy="22.5" r="1.4"/><circle cx="16" cy="22.5" r="1.4"/></g></svg>
+            <span class="quick__txt"><strong>예약하기</strong><small>실시간 예약 바로가기</small></span>
+            <i class="arr"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="quick__item" data-modal="lookupModal">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="6" width="24" height="22" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 12h24M10 3v6M22 3v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M11 20l3.5 3.5L21 17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="quick__txt"><strong>예약조회</strong><small>예약 내역 확인하기</small></span>
+          </a>
+        </li>
+        <li>
+          <a href="#footer" class="quick__item">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 29s-9-8.6-9-15.5a9 9 0 0118 0C25 20.4 16 29 16 29z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="16" cy="13.5" r="3.2" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+            <span class="quick__txt"><strong>오시는길</strong><small>이포CC 찾아오시는 길</small></span>
+          </a>
+        </li>
+        <li>
+          <a href="#today" class="quick__item">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 26h15a5 5 0 000-10 7 7 0 00-13.4 1.5A4.3 4.3 0 009 26z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M13 5v2.5M5.5 8.5l1.8 1.8M20.5 8.5l-1.8 1.8M3 15h2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span class="quick__txt"><strong>실시간 날씨</strong><small>오늘의 날씨 &amp; 코스 상태</small></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========== COURSE ========== -->
+  <section class="section course" id="course">
+    <div class="container split">
+      <div class="split__head reveal">
+        <p class="eyebrow">COURSE</p>
+        <h2 class="sec-title">이포CC의 아름다운 코스</h2>
+        <p class="sec-desc">자연과 조화를 이룬 36홀의 명문 코스에서 <br />최고의 라운드를 경험해보세요.</p>
+        <a href="#" class="btn btn--line">코스 전체보기 <i class="arr"></i></a>
+      </div>
+      <div class="course__cards">
+        <a href="#" class="course-card reveal">
+          <div class="course-card__img img" style="background-image:url('images/course-east.jpg'), var(--ph)"></div>
+          <div class="course-card__info">
+            <span class="en">East Course</span>
+            <strong>동코스</strong>
+          </div>
+          <i class="circle-arr"></i>
+        </a>
+        <a href="#" class="course-card reveal">
+          <div class="course-card__img img" style="background-image:url('images/course-west.jpg'), var(--ph)"></div>
+          <div class="course-card__info">
+            <span class="en">West Course</span>
+            <strong>서코스</strong>
+          </div>
+          <i class="circle-arr"></i>
+        </a>
+        <a href="#" class="course-card reveal">
+          <div class="course-card__img img" style="background-image:url('images/course-signature.png'), var(--ph)"></div>
+          <div class="course-card__info">
+            <span class="en">Signature Hole</span>
+            <strong>시그니처 홀</strong>
+          </div>
+          <i class="circle-arr"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TODAY ========== -->
+  <section class="today" id="today">
+    <div class="today__photo img" style="background-image:url('images/today-aerial.jpg'), var(--ph)"></div>
+    <div class="today__card reveal">
+      <h3>오늘의 이포CC</h3>
+      <p class="today__lead">실시간 정보로 더 편리한 라운드를 즐기세요.</p>
+      <ul class="today__stats">
+        <li>
+          <span class="label">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><g stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg>
+            날씨
+          </span>
+          <strong id="todayWeather">맑음 22°</strong>
+          <small id="todayRain">강수확률 10%</small>
+        </li>
+        <li>
+          <span class="label">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9 16V8h3.5a2.5 2.5 0 010 5H9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            코스 상태
+          </span>
+          <strong id="todayStatus">양호</strong>
+          <small id="todayGreen">그린 빠름</small>
+        </li>
+        <li>
+          <span class="label">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            예약 가능 시간
+          </span>
+          <strong id="todaySlots">오전 06:30 - 08:20</strong>
+          <small id="todaySlotsNote">(동코스 기준)</small>
+        </li>
+      </ul>
+      <a href="#reserve" class="btn btn--green btn--sm" data-modal="reserveModal">실시간 예약하기 <i class="arr"></i></a>
+    </div>
+    <div class="today__video">
+      <a href="#" class="video-thumb img reveal" style="background-image:url('images/promo-video.png'), var(--ph)" aria-label="이포CC 홍보영상 재생">
+        <i class="play"></i>
+      </a>
+      <h3>이포CC 홍보영상</h3>
+      <p>자연이 선사하는<br />최고의 라운드를 영상으로 만나보세요.</p>
+      <a href="#" class="btn btn--line-light btn--sm">영상 보러가기 <i class="arr"></i></a>
+    </div>
+  </section>
+
+  <!-- ========== GALLERY ========== -->
+  <section class="section gallery" id="gallery">
+    <div class="container split">
+      <div class="split__head reveal">
+        <p class="eyebrow">GALLERY</p>
+        <h2 class="sec-title">지금, 이포CC는</h2>
+        <p class="sec-desc">계절마다 다른 매력을 선사하는 이포CC의 <br />아름다운 풍경을 만나보세요.</p>
+        <a href="#" class="btn btn--line">갤러리 더보기 <i class="arr"></i></a>
+      </div>
+      <div class="gallery__grid">
+        <a href="#" class="g-item reveal">
+          <div class="g-item__img img" style="background-image:url('images/gallery-sunset.png'), var(--ph)"><i class="play play--sm"></i><i class="play-corner"></i></div>
+          <strong>해질녘 이포CC</strong>
+          <small>#노을 #클럽하우스</small>
+        </a>
+        <a href="#" class="g-item reveal">
+          <div class="g-item__img img" style="background-image:url('images/gallery-terrace.png'), var(--ph)"><i class="play play--sm"></i><i class="play-corner"></i></div>
+          <strong>클럽하우스 테라스</strong>
+          <small>#파라솔 #여유로운휴식</small>
+        </a>
+        <a href="#" class="g-item reveal">
+          <div class="g-item__img img" style="background-image:url('images/gallery-garden.png'), var(--ph)"><i class="play-corner"></i></div>
+          <strong>정원 산책로</strong>
+          <small>#연못 #힐링</small>
+        </a>
+        <a href="#" class="g-item reveal">
+          <div class="g-item__img img img--night" style="background-image:url('images/gallery-night.jpg'), var(--ph)"><i class="play play--sm"></i><i class="play-corner"></i></div>
+          <strong>야간 라운드</strong>
+          <small>#나이트골프 #이포CC의밤</small>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CLUBHOUSE ========== -->
+  <section class="clubhouse" id="clubhouse">
+    <div class="clubhouse__photo img img--warm" style="background-image:url('images/clubhouse.jpg'), var(--ph)"></div>
+    <div class="clubhouse__body">
+      <div class="clubhouse__head reveal">
+        <p class="eyebrow">CLUBHOUSE</p>
+        <h2 class="sec-title">프리미엄 클럽하우스</h2>
+        <p class="sec-desc">편안함과 품격이 공존하는 이포CC의 클럽하우스에서 <br />특별한 경험을 느껴보세요.</p>
+        <a href="#" class="btn btn--line btn--sm">클럽하우스 둘러보기 <i class="arr"></i></a>
+      </div>
+      <div class="clubhouse__cards">
+        <a href="#" class="facility reveal">
+          <div class="facility__img img img--warm" style="background-image:url('images/restaurant.png'), var(--ph)"></div>
+          <strong>레스토랑</strong>
+          <small>맛있는 식사와 여유로운 시간</small>
+        </a>
+        <a href="#" class="facility reveal">
+          <div class="facility__img img img--warm" style="background-image:url('images/lounge.png'), var(--ph)"></div>
+          <strong>라운지</strong>
+          <small>자연을 품은 휴식 공간</small>
+        </a>
+        <a href="#" class="facility reveal">
+          <div class="facility__img img img--warm" style="background-image:url('images/proshop.png'), var(--ph)"></div>
+          <strong>프로샵</strong>
+          <small>골프 라이프를 위한 특별한 아이템</small>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== NEWS ========== -->
+  <section class="section news" id="news">
+    <div class="container split">
+      <div class="split__head reveal">
+        <p class="eyebrow">EVENT &amp; NEWS</p>
+        <h2 class="sec-title">이포CC 소식</h2>
+        <p class="sec-desc">다양한 이벤트와 새로운 소식을 만나보세요.</p>
+        <a href="#" class="btn btn--line">전체보기 <i class="arr"></i></a>
+      </div>
+      <div class="news__list" id="newsList">
+        <a href="#" class="news-card reveal">
+          <div class="news-card__img img" style="background-image:url('images/news-1.png'), var(--ph)"><span class="tag">EVENT</span></div>
+          <div class="news-card__body">
+            <strong>명절 선물세트 특별 판매</strong>
+            <div class="news-card__meta"><time>2025.04.01 - 2025.05.31</time><i class="arr arr--dark"></i></div>
+          </div>
+        </a>
+        <a href="#" class="news-card reveal">
+          <div class="news-card__img img" style="background-image:url('images/news-2.png'), var(--ph)"><span class="tag tag--navy">NEWS</span></div>
+          <div class="news-card__body">
+            <strong>이포CC 클럽하우스 리뉴얼 오픈</strong>
+            <div class="news-card__meta"><time>2025.03.20</time><i class="arr arr--dark"></i></div>
+          </div>
+        </a>
+        <a href="#" class="news-card reveal">
+          <div class="news-card__img img" style="background-image:url('images/news-3.png'), var(--ph)"><span class="tag">EVENT</span></div>
+          <div class="news-card__body">
+            <strong>프로샵 신상품 입고 안내</strong>
+            <div class="news-card__meta"><time>2025.03.01</time><i class="arr arr--dark"></i></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" id="footer">
+    <div class="container footer__top">
+      <ul class="footer__links">
+        <li><a href="#">이용약관</a></li>
+        <li><a href="#" class="strong">개인정보처리방침</a></li>
+        <li><a href="#">오시는길</a></li>
+        <li><a href="#">사이트맵</a></li>
+      </ul>
+      <div class="footer__sns">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4" fill="currentColor"/><path d="M10 9v6l5-3z" fill="#0f3a2c"/></svg></a>
+        <a href="#" aria-label="Naver Blog"><svg viewBox="0 0 24 24"><path d="M4 4h5.5l5 7.4V4H20v16h-5.5l-5-7.4V20H4z" fill="currentColor"/></svg></a>
+        <button class="to-top" id="toTop" aria-label="맨 위로"><svg viewBox="0 0 24 24"><path d="M12 18V6M6.5 11.5L12 6l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+    </div>
+
+    <div class="container footer__inner">
+      <a href="#" class="footer__logo" aria-label="IPO C.C. 홈">
+        <!-- 엠블럼: 실제 로고 파일이 있으면 <img src="images/logo-emblem.png"> 로 교체 -->
+        <svg class="footer__emblem" viewBox="0 0 60 64" aria-hidden="true">
+          <g fill="none" stroke="currentColor">
+            <path d="M14 8 Q30 2 46 8" stroke-width="1"/>
+            <path d="M10 20 C6 30 8 44 18 52 M50 20 C54 30 52 44 42 52" stroke-width="1.2"/>
+            <path d="M9 26l-3-2M8 33l-3-1M9 40l-3 0M12 46l-3 1M51 26l3-2M52 33l3-1M51 40l3 0M48 46l3 1" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M18 14h24v20c0 9-6 15-12 18-6-3-12-9-12-18z" stroke-width="1.8"/>
+            <path d="M20.5 16.5h19v17.3c0 7.4-4.8 12.4-9.5 15-4.7-2.6-9.5-7.6-9.5-15z" stroke-width="0.8"/>
+          </g>
+          <text x="30" y="11.5" text-anchor="middle" font-size="5" font-family="Montserrat, sans-serif" font-weight="600" fill="currentColor" letter-spacing="0.6">IPO</text>
+          <text x="30" y="39" text-anchor="middle" font-size="19" font-family="Cormorant Garamond, serif" font-weight="600" fill="currentColor">P</text>
+          <path d="M25 36 Q30 43 35 36" fill="none" stroke="currentColor" stroke-width="1"/>
+          <text x="30" y="62" text-anchor="middle" font-size="5" font-family="Montserrat, sans-serif" font-weight="600" fill="currentColor" letter-spacing="0.6">C.C.</text>
+        </svg>
+        <span class="footer__brand">IPO C.C.</span>
+      </a>
+
+      <div class="footer__info">
+        <h2 class="footer__name">이포컨트리클럽</h2>
+        <address>
+          <p><span>주소: 경기도 여주시 금사면 장흥로 416(12602)</span></p>
+          <p><span>대표: 심춘석</span><span>사업자번호: 126-81-06794</span></p>
+          <p>
+            <span>대표전화: <a href="tel:031-886-8100">031-886-8100</a></span>
+            <span>팩스: 031-886-8106</span>
+            <span>이메일: <a href="mailto:ipocc9000@nate.com">ipocc9000@nate.com</a></span>
+          </p>
+        </address>
+        <p class="copy">Copyright ⓒ 2015 IPO COUNTRY CLUB. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 모바일 메뉴 배경 -->
+  <div class="dim" id="dim"></div>
+
+  <!-- ========== 예약 모달 ========== -->
+  <div class="modal" id="reserveModal" role="dialog" aria-modal="true" aria-labelledby="reserveTitle" hidden>
+    <div class="modal__panel">
+      <button class="modal__close" data-close aria-label="닫기"></button>
+      <p class="eyebrow">RESERVATION</p>
+      <h2 class="modal__title" id="reserveTitle">실시간 예약하기</h2>
+
+      <form id="reserveForm" class="form" novalidate>
+        <div class="form__row">
+          <label class="field">
+            <span>날짜</span>
+            <input type="date" name="date" id="reserveDate" required />
+          </label>
+          <label class="field">
+            <span>코스</span>
+            <select name="course" id="reserveCourse" required>
+              <option value="east">동코스</option>
+              <option value="west">서코스</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="field">
+          <span>티타임 선택</span>
+          <div class="slots" id="slotList" role="radiogroup" aria-label="티타임"></div>
+        </div>
+
+        <div class="form__row">
+          <label class="field">
+            <span>예약자명</span>
+            <input type="text" name="name" maxlength="20" autocomplete="name" required />
+          </label>
+          <label class="field">
+            <span>연락처</span>
+            <input type="tel" name="phone" placeholder="010-1234-5678" autocomplete="tel" required />
+          </label>
+        </div>
+
+        <label class="field">
+          <span>인원</span>
+          <select name="players">
+            <option value="4">4명</option>
+            <option value="3">3명</option>
+            <option value="2">2명</option>
+          </select>
+        </label>
+
+        <p class="form__msg" id="reserveMsg" role="alert"></p>
+        <button type="submit" class="btn btn--green form__submit">예약 신청 <i class="arr"></i></button>
+      </form>
+
+      <div class="result" id="reserveResult" hidden></div>
+    </div>
+  </div>
+
+  <!-- ========== 예약조회 모달 ========== -->
+  <div class="modal" id="lookupModal" role="dialog" aria-modal="true" aria-labelledby="lookupTitle" hidden>
+    <div class="modal__panel">
+      <button class="modal__close" data-close aria-label="닫기"></button>
+      <p class="eyebrow">MY RESERVATION</p>
+      <h2 class="modal__title" id="lookupTitle">예약조회</h2>
+
+      <form id="lookupForm" class="form" novalidate>
+        <label class="field">
+          <span>연락처</span>
+          <input type="tel" name="phone" placeholder="010-1234-5678" autocomplete="tel" required />
+        </label>
+        <label class="field">
+          <span>예약번호</span>
+          <input type="text" name="code" placeholder="예: A7K2M9QX" maxlength="8" required />
+        </label>
+        <p class="form__msg" id="lookupMsg" role="alert"></p>
+        <button type="submit" class="btn btn--green form__submit">조회하기 <i class="arr"></i></button>
+      </form>
+
+      <div class="result" id="lookupResult" hidden></div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
