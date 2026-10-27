@@ -806,6 +806,14 @@ svg { display: block; }
 .modal__close::after { transform: translate(-50%, -50%) rotate(-45deg); }
 .modal__close:hover { background: var(--bg); }
 
+/* 홍보영상 */
+.modal--video .modal__panel { max-width: 960px; padding: 0; background: #000; overflow: hidden; }
+.modal--video video { display: block; width: 100%; max-height: 80vh; background: #000; }
+.modal--video .modal__close { top: 10px; right: 10px; z-index: 1; background: rgba(0, 0, 0, 0.45); }
+.modal--video .modal__close::before,
+.modal--video .modal__close::after { background: #fff; }
+.modal--video .modal__close:hover { background: rgba(0, 0, 0, 0.7); }
+
 /* form */
 .form { display: grid; gap: 16px; }
 .form[hidden] { display: none; }
@@ -882,5 +890,7 @@ svg { display: block; }
 @media (max-width: 720px) {
   .modal { place-items: end center; padding: 0; }
   .modal__panel { border-radius: 16px 16px 0 0; padding: 32px 20px 24px; max-height: 92vh; overflow-y: auto; }
+  .modal--video { place-items: center; padding: 16px; }
+  .modal--video .modal__panel { border-radius: 12px; padding: 0; }
   .form__row { grid-template-columns: minmax(0, 1fr); }
 }

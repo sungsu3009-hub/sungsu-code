@@ -148,9 +148,11 @@
     modal.querySelector("input, select, button")?.focus();
     if (id === "reserveModal") resetReserve();
     if (id === "lookupModal") resetLookup();
+    if (id === "videoModal") $("promoVideo").play().catch(() => {}); // 자동재생이 막히면 재생 버튼으로
   }
 
   function closeModal(modal) {
+    modal.querySelector("video")?.pause();
     modal.classList.remove("is-open");
     document.body.style.overflow = "";
     setTimeout(() => (modal.hidden = true), 250);
@@ -159,7 +161,8 @@
 
   document.querySelectorAll("[data-modal]").forEach((btn) =>
     btn.addEventListener("click", (e) => {
-      if (!hasServer) return; // 서버 없이 열었을 때는 기존 링크 동작
+      // 서버 없이 열었을 때는 기존 링크 동작 (영상은 서버 없이도 재생 가능)
+      if (!hasServer && btn.dataset.modal !== "videoModal") return;
       e.preventDefault();
       openModal(btn.dataset.modal);
     })
