@@ -3,8 +3,10 @@
 const LAT = 37.37;
 const LON = 127.45;
 const CACHE_MS = 10 * 60 * 1000;
+const RETRY_MS = 2 * 60 * 1000; // 실패 후 다시 시도하기까지 기다리는 시간
 
 let cache = { at: 0, data: null };
+let failedAt = 0;
 
 // WMO 날씨 코드 → 한글
 function describe(code) {
@@ -22,6 +24,8 @@ function describe(code) {
 
 export async function getWeather() {
   if (cache.data && Date.now() - cache.at < CACHE_MS) return cache.data;
+  // 직전에 실패했다면 잠시 요청을 멈춘다 (429 차단이 길어지지 않도록)
+  if (!cache.data && Date.now() - failedAt < RETRY_MS) return null;
 
   const url =
     `https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}` +
@@ -43,7 +47,11 @@ export async function getWeather() {
   } catch (err) {
     console.warn("[weather] 날씨 정보를 가져오지 못했습니다:", err.message);
     // 실패해도 직전 값이 있으면 그대로 사용 (10분 뒤 다시 시도)
-    if (!cache.data) return null;
+    // 없으면 null → 브라우저가 Open-Meteo에서 직접 가져온다 (public/js/app.js)
+    if (!cache.data) {
+      failedAt = Date.now();
+      return null;
+    }
     cache.at = Date.now();
   }
   return cache.data;

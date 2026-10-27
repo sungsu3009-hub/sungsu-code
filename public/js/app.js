@@ -42,14 +42,51 @@
   // =========================================================
   // 오늘의 이포CC
   // =========================================================
+  // WMO 날씨 코드 → 한글 (server/weather.js와 같은 규칙)
+  function describeSky(code) {
+    if (code === 0) return "맑음";
+    if (code <= 2) return "구름 조금";
+    if (code === 3) return "흐림";
+    if (code <= 48) return "안개";
+    if (code <= 57) return "이슬비";
+    if (code <= 67) return "비";
+    if (code <= 77) return "눈";
+    if (code <= 82) return "소나기";
+    if (code <= 86) return "눈";
+    return "뇌우";
+  }
+
+  // 서버가 날씨를 못 가져왔을 때(공용 서버 IP가 429로 막히는 경우 등) 브라우저에서 직접 가져온다
+  async function fetchWeatherDirect() {
+    const url =
+      "https://api.open-meteo.com/v1/forecast?latitude=37.37&longitude=127.45" +
+      "&current=temperature_2m,weather_code&daily=precipitation_probability_max" +
+      "&timezone=Asia%2FSeoul&forecast_days=1";
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const json = await res.json();
+    return {
+      temp: Math.round(json.current.temperature_2m),
+      sky: describeSky(json.current.weather_code),
+      rainChance: json.daily.precipitation_probability_max?.[0] ?? null,
+    };
+  }
+
+  function showWeather(w) {
+    $("headerTemp").textContent = `${w.temp}°`;
+    $("todayWeather").textContent = `${w.sky} ${w.temp}°`;
+    $("todayRain").textContent = w.rainChance == null ? "강수확률 정보 없음" : `강수확률 ${w.rainChance}%`;
+  }
+
   async function loadToday() {
     const data = await request("/today");
 
     if (data.weather) {
-      $("headerTemp").textContent = `${data.weather.temp}°`;
-      $("todayWeather").textContent = `${data.weather.sky} ${data.weather.temp}°`;
-      $("todayRain").textContent =
-        data.weather.rainChance == null ? "강수확률 정보 없음" : `강수확률 ${data.weather.rainChance}%`;
+      showWeather(data.weather);
+    } else {
+      fetchWeatherDirect()
+        .then(showWeather)
+        .catch((err) => console.warn("[weather] 날씨 정보를 가져오지 못했습니다:", err.message));
     }
 
     $("todayStatus").textContent = data.course.status;
