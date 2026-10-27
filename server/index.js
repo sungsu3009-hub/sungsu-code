@@ -14,7 +14,15 @@ app.set("trust proxy", 1); // 호스팅 서비스(프록시) 뒤에서도 실제
 app.use(express.json({ limit: "10kb" }));
 app.use("/api", api);
 app.use("/api", (req, res) => res.status(404).json({ error: "없는 API 주소입니다." }));
-app.use(express.static(resolve(root, "public"), { maxAge: "1h" }));
+app.use(
+  express.static(resolve(root, "public"), {
+    maxAge: "1h",
+    // HTML은 매번 새로 확인 → 배포하면 바로 반영 (CSS/JS는 ?v= 번호로 갱신)
+    setHeaders: (res, path) => {
+      if (path.endsWith(".html")) res.setHeader("Cache-Control", "no-cache");
+    },
+  })
+);
 
 // 처리 중 예기치 못한 오류
 app.use((err, req, res, next) => {
